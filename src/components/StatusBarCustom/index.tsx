@@ -23,7 +23,7 @@ export const StatusBarCustom = ({ backgroundColor, ...props }: Props) => (
 );
 
 const STATUSBAR_HEIGHT = StatusBar.currentHeight;
-const APPBAR_HEIGHT = isIOSPlatform() ? 44 : 56;
+const APPBAR_HEIGHT = isIOSPlatform ? 44 : 56;
 
 const styles = StyleSheet.create({
   container: {

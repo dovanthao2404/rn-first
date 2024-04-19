@@ -1,0 +1,60 @@
+{
+  "api": {
+    "api085b08f0": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "firstappe54fb485e54fb485": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "firstapp3f4746f5": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_firstapp3f4746f5_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "firstapp3f4746f5"
+        }
+      ]
+    },
+    "AMPLIFY_function_firstapp3f4746f5_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "firstapp3f4746f5"
+        }
+      ]
+    }
+  }
+}
