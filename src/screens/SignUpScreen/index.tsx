@@ -39,7 +39,6 @@ export const SignUpScreen = () => {
           },
         },
       });
-      console.log({ isSignUpComplete, userId, nextStep });
       navigation.replace("ConfirmSignUp", { username});
     } catch (error) {}
   }

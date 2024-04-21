@@ -20,7 +20,6 @@ import { useState } from "react";
 import { CommonButton } from "../../components/CommonButton";
 import { confirmSignUp } from "aws-amplify/auth";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { userState } from "../../globalState/userState";
 export type ParamList = {
   SignUp: {
     username: string;
@@ -31,7 +30,6 @@ export const ConfirmSignUpScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   const route = useRoute<RouteProp<ParamList, "SignUp">>();
 
-  const setUserStateValue = useSetRecoilState(userState);
 
   const [code, setCode] = useState("");
   const [isPinReady, setIsPinReady] = useState(false);
@@ -52,7 +50,6 @@ export const ConfirmSignUpScreen = () => {
       }
     } catch (error) {}
   }
-  console.log(route.params);
 
   return (
     <SafeAreaView style={styles.box}>

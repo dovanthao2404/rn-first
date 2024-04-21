@@ -30,12 +30,14 @@ export const Routes = () => {
     (async () => {
       try {
         await getCurrentUser();
+        console.log("runtren")
         setUserStateValue({ isLoggedIn: true });
       } catch (err) {
+        console.log("run-duoi")
         setUserStateValue({ isLoggedIn: false });
       }
     })();
-  }, [userStateValue]);
+  }, [userStateValue.isLoggedIn]);
   return (
     <NavigationContainer>
       <Stack.Navigator

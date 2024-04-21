@@ -29,11 +29,9 @@ export const SignInScreen = () => {
           authFlowType: "USER_PASSWORD_AUTH",
         },
       });
-      console.log(result)
       setUserStateValue({ isLoggedIn: true });
     } catch (error) {
 
-      setUserStateValue({ isLoggedIn: false });
     }
   }
   return (

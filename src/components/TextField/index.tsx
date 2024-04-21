@@ -16,7 +16,7 @@ export const TextField: FC<TextInputProps> = (rest) => {
         <View />
       </TouchableWithoutFeedback>
       <TextInput
-        placeholderTextColor={Colors.COLOR_00000080}
+        placeholdercolor={Colors.COLOR_00000080}
         style={styles.input}
         {...rest}
       />

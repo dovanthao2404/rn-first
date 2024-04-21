@@ -13,7 +13,7 @@ import { Colors } from "../../constants/Colors";
 
 interface CommonButtonProps extends TouchableOpacityProps {
   title: string;
-  textColor?: string;
+  color?: string;
   backgroundColor?: string;
   buttonStyle?: StyleProp<ViewStyle>;
   fontSize?: number;
@@ -25,13 +25,13 @@ export const CommonButton: React.FC<CommonButtonProps> = memo(
     onPress,
     title,
     fontSize = 18,
-    textColor = Colors.COLOR_FFFFFF,
+    color = Colors.COLOR_FFFFFF,
     backgroundColor = Colors.COLOR_D35400,
     width = 200,
     ...rest
   }) => {
     const buttonTextStyles: TextStyle = {
-      color: textColor,
+      color: color,
       fontSize: fontSize,
     };
 
