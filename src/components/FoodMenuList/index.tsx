@@ -37,7 +37,7 @@ export const FoodMenuList = () => {
       const itemSecond = list[i + 1];
       const isEven = (i / 2) % 2 == 0;
       itemRender.push(
-        <View style={[styles.item]}>
+        <View style={[styles.item]} key={i}>
           <View
             style={[
               styles.itemContent,
