@@ -16,6 +16,8 @@ import { SignUpStack } from "./SignUpStack";
 import { withAuthWrapper } from "../components/AuthWrapper";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userState } from "../globalState/userState";
+import { ConfirmSignUpStack } from "./ConfirmSignUpStack";
+import { Tabs } from "../navigation";
 
 const Stack = createNativeStackNavigator();
 
@@ -60,10 +62,15 @@ export const Routes = () => {
               component={SignUpWithWrapper}
               options={{ animation: "none" }}
             />
+             <Stack.Screen
+              name="ConfirmSignUp"
+              component={ConfirmSignUpStack}
+              options={{ animation: "none" }}
+            />
           </>
         ) : (
           <>
-            <Stack.Screen name="App" component={HomeStack} />
+            <Stack.Screen name="App" component={Tabs} />
           </>
         )}
       </Stack.Navigator>

@@ -4,8 +4,17 @@ import { Colors } from "../../constants/Colors";
 import { TextField } from "../../components/TextField";
 import { CommonButton } from "../../components/CommonButton";
 import { KeyboardAvoiding } from "../../components/KeyboardAvoiding";
-
+import { confirmSignUp, signUp } from "aws-amplify/auth";
+import { ParamListBase, useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+type SignUpParameters = {
+  username: string;
+  password: string;
+  email: string;
+};
 export const SignUpScreen = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+
   const [form, setForm] = React.useState<{
     username: string;
     password: string;
@@ -15,11 +24,25 @@ export const SignUpScreen = () => {
     password: "",
     email: "",
   });
+
   const handleChange = (name: string) => (value: string) => {
     setForm((form) => ({ ...form, [name]: value }));
   };
-  console.log(form);
-
+  async function handleSignUp({ username, password, email }: SignUpParameters) {
+    try {
+      const { isSignUpComplete, userId, nextStep } = await signUp({
+        username,
+        password,
+        options: {
+          userAttributes: {
+            email,
+          },
+        },
+      });
+      console.log({ isSignUpComplete, userId, nextStep });
+      navigation.replace("ConfirmSignUp", { username});
+    } catch (error) {}
+  }
   return (
     <>
       <View>
@@ -46,7 +69,13 @@ export const SignUpScreen = () => {
         </View>
       </View>
       <View style={[styles.signInBtn]}>
-        <CommonButton title="Sign Up" width={"100%"} />
+        <CommonButton
+          title="Sign Up"
+          width={"100%"}
+          onPress={() => {
+            handleSignUp(form);
+          }}
+        />
       </View>
     </>
   );

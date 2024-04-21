@@ -4,11 +4,11 @@ import { Colors } from "../../constants/Colors";
 import { TextField } from "../../components/TextField";
 import { CommonButton } from "../../components/CommonButton";
 import { SignInInput, signIn } from "aws-amplify/auth";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { userState } from "../../globalState/userState";
 
 export const SignInScreen = () => {
-  const [_, setUserStateValue] = useRecoilState(userState);
+  const setUserStateValue = useSetRecoilState(userState);
   const [form, setForm] = React.useState<{
     username: string;
     password: string;

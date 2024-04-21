@@ -16,7 +16,7 @@ type SignUpParameters = {
 export const AuthScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
-  const navigate = (target: string) => () => navigation.navigate(target);
+  const navigate = (target: string) => () => navigation.navigate(target,{ username: "hihihi"});
 
   async function handleSignUp({ username, password, email }: SignUpParameters) {
     try {
@@ -54,6 +54,13 @@ export const AuthScreen = () => {
             textColor={Colors.COLOR_000000}
             width={320}
             onPress={navigate("SignUp")}
+          />
+              <CommonButton
+            title="Sign Up"
+            backgroundColor={Colors.COLOR_ECF0F1}
+            textColor={Colors.COLOR_000000}
+            width={320}
+            onPress={navigate("ConfirmSignUp")}
           />
         </View>
       </View>
