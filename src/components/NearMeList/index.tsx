@@ -1,10 +1,6 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { CommonSection } from "../CommonSection";
-import { Colors } from "../../constants/Colors";
-import { LocationIcon } from "../../assets/icons/LocationIcon";
-import { ClockIcon } from "../../assets/icons/ClockIcon";
-import { StarIcon } from "../../assets/icons/StarIcon";
-import { NearMeItem } from "../NearMeItem";
+import { ShopItem } from "../ShopItem";
 
 const list = [
   {
@@ -33,12 +29,11 @@ const list = [
 export const NearMeList = () => {
   return (
     <CommonSection title="Near Me">
-
-        <View style={[styles.list]}>
-          {list.map((item, index) => {
-            return <NearMeItem {...item} key={index} />;
-          })}
-        </View>
+      <View style={[styles.list]}>
+        {list.map((item, index) => {
+          return <ShopItem {...item} key={index} />;
+        })}
+      </View>
     </CommonSection>
   );
 };

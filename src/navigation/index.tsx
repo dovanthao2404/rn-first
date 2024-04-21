@@ -10,6 +10,9 @@ import { SvgProps } from "react-native-svg";
 import { Colors } from "../constants/Colors";
 import { CustomTabBar } from "../components/CustomTabBar";
 import { LabelPosition } from "@react-navigation/bottom-tabs/lib/typescript/src/types";
+import { OrderStack } from "../routes/OrderStack";
+import { MyListStack } from "../routes/MyListStack";
+import { ProfileStack } from "../routes/ProfileStack";
 interface ScreenTab {
   screenName: string;
   screenComponent: FC;
@@ -27,17 +30,17 @@ const screens: ScreenTab[] = [
   },
   {
     screenName: "Order",
-    screenComponent: HomeScreen,
+    screenComponent: OrderStack,
     Icon: ShoppingIcon,
   },
   {
     screenName: "My List",
-    screenComponent: HomeScreen,
+    screenComponent: MyListStack,
     Icon: RectangleIcon,
   },
   {
     screenName: "Profile",
-    screenComponent: HomeScreen,
+    screenComponent: ProfileStack,
     Icon: UserIcon,
   },
 ];
@@ -45,17 +48,16 @@ const screens: ScreenTab[] = [
 export const Tabs = () => {
   return (
     <Tab.Navigator
-      screenOptions={{
+        backBehavior= "history"
+        screenOptions={{
         headerShown: false,
         tabBarStyle: {
           height: 100,
           paddingHorizontal: "10%",
-          elevation: 0,   // for Android
-          borderTopWidth: 0
-
+          elevation: 0, // for Android
+          borderTopWidth: 0,
         },
-        tabBarItemStyle: {
-        },
+        tabBarItemStyle: {},
         tabBarShowLabel: false,
       }}
     >
@@ -81,7 +83,7 @@ export const Tabs = () => {
                     color: !focused
                       ? Colors.COLOR_00000050
                       : Colors.COLOR_D35400,
-                      fontSize: 12
+                    fontSize: 12,
                   }}
                 >
                   {screenName}

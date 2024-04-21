@@ -3,6 +3,7 @@ import { LocationIcon } from "../../assets/icons/LocationIcon";
 import { Colors } from "../../constants/Colors";
 import { StarIcon } from "../../assets/icons/StarIcon";
 import { ClockIcon } from "../../assets/icons/ClockIcon";
+import { RectangleIcon } from "../../assets/icons/RectangleIcon";
 
 type Props = {
   name: string;
@@ -10,18 +11,30 @@ type Props = {
   address: string;
   time: string;
   start: number;
+  isSave?: boolean;
 };
-export const NearMeItem = ({ name, image, address, time, start }: Props) => {
+export const ShopItem = ({
+  name,
+  image,
+  address,
+  time,
+  start,
+  isSave,
+}: Props) => {
   return (
     <View style={[styles.item]}>
       <View>
         <Image style={[styles.image]} source={image} />
       </View>
-      <View style={{flex: 1}}>
-        <Text style={[styles.itemTitle]} numberOfLines={1}>{name}</Text>
+      <View style={{ flex: 1 }}>
+        <Text style={[styles.itemTitle]} numberOfLines={1}>
+          {name}
+        </Text>
         <View style={[styles.itemAddress]}>
           <LocationIcon width={8.25} height={12} fill={Colors.COLOR_34495E} />
-          <Text style={[styles.itemAddressText]} numberOfLines={2}>{address}</Text>
+          <Text style={[styles.itemAddressText]} numberOfLines={2}>
+            {address}
+          </Text>
         </View>
         <View style={[styles.itemAddress, styles.itemClock]}>
           <ClockIcon fill={Colors.COLOR_34495E} />
@@ -34,6 +47,7 @@ export const NearMeItem = ({ name, image, address, time, start }: Props) => {
               <StarIcon key={index} />
             ))}
         </View>
+        {isSave && <RectangleIcon style={[styles.saveShop]} />}
       </View>
     </View>
   );
@@ -73,5 +87,10 @@ const styles = StyleSheet.create({
     height: 130,
     objectFit: "cover",
     borderRadius: 20,
+  },
+  saveShop: {
+    position: "absolute",
+    bottom: 10,
+    right: 10,
   },
 });
