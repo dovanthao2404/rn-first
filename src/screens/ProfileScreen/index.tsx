@@ -24,8 +24,8 @@ export const ProfileScreen = () => {
         styles.container,
         {
           flex: 1,
-          backgroundColor: Colors.COLOR_FFFFFF,
           paddingTop: isIOSPlatform ? 20 : 0,
+
         },
       ]}
     >
@@ -63,11 +63,11 @@ export const ProfileScreen = () => {
           </View>
         </ScrollView>
       </View>
-      <View style={{ marginBottom: 40 }}>
+      <View style={{ marginBottom: 10,  }}>
         <CommonButton
           onPress={handleSignOut}
           color={Colors.COLOR_000000}
-          backgroundColor={Colors.COLOR_ECF0F1}
+          backgroundColor={Colors.COLOR_00000040}
           title="Sign Out"
           width={"100%"}
         />
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   },
   profile: {
     alignItems: "center",
-    marginTop: 50,
+    marginTop: 30,
   },
   avatarImage: {
     width: 150,
